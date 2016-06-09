@@ -1,8 +1,8 @@
-server:
-  port: 8888
 spring:
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/rgalango/archaius-config
+          uri: https://github.com/candres0819/configserver
+server:
+  port: 8081
