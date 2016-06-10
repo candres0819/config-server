@@ -50,17 +50,17 @@ spring:
       userAuthorizationUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/oauth/authorize
       clientId: client
       clientSecret: secret
-# The userInfoUri is used to authenticate the user so that SSO token can be relayed forward. It needs to either be
-# a physical endpoint (defined using userInfoUri) OR can be bypassed if you use a JSON web token (JWT) that stores
-# information about grants and authentication in the token itself.
+    # The userInfoUri is used to authenticate the user so that SSO token can be relayed forward. It needs to either be
+    # a physical endpoint (defined using userInfoUri) OR can be bypassed if you use a JSON web token (JWT) that stores
+    # information about grants and authentication in the token itself.
 
-# Note that the "/user" endpoint needs to provide the principle of the logged in user (/me endpoint)
+    # Note that the "/user" endpoint needs to provide the principle of the logged in user (/me endpoint)
     resource: 
       userInfoUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/me
       preferTokenInfo: false 
 
-# Datasource and JPA configuration to be used for using the same tokenstore as the authorization server for
-# the defined resource server. Note that there can't be 2 different root nodes, so datasource falls under the "spring" node.
+  # Datasource and JPA configuration to be used for using the same tokenstore as the authorization server for
+  # the defined resource server. Note that there can't be 2 different root nodes, so datasource falls under the "spring" node.
   datasource:
     url: jdbc:mysql://docker:3306/auth
     username: root
@@ -73,26 +73,29 @@ spring:
     hibernate:
       ddl-auto: create
 
----
+#---
 # Auth-server instance when used on Docker
-spring:
-  profiles: docker
-eureka:
+
+#spring:
+#  profiles: docker
+#eureka:
+
 # Register our microservices to Eureka using hostnames in a Docker environment will not work, they will all get 
 # one and the same hostname. Instead we configure them to use its IP address during registration with Eureka.
-  instance:
-    preferIpAddress: true
-  client:
-    serviceUrl:
-      defaultZone: http://192.168.59.103:8761/eureka/
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    serviceUrl:
+#      defaultZone: http://192.168.59.103:8761/eureka/
 
 # The OAuth2 server definition that would be used to send the authorization requests to
-authserver:
-    hostname: 192.168.59.103
-    port: 8899
-    contextPath: userauth
+
+#authserver: 
+#    hostname: 192.168.59.103
+#    port: 8899
+#    contextPath: userauth
 
 # Define the port where the API gateway server would be running. This could always be port 8080
 # since each docker container has it's own IP
-server:
-  port: 8080
+#server:
+#  port: 8080
