@@ -1,4 +1,4 @@
-package com.carloscardona.icroservices.configserver;
+package com.carloscardona.microservices.configserver;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,6 +16,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+
+import com.carloscardona.microservices.configserver.ConfigServerApplication;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = ConfigServerApplication.class)
