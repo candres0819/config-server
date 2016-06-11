@@ -1,0 +1,15 @@
+server:
+  port: 8083
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+authserver:
+  hostname: localhost
+  port: 8899
+  contextPath: userauth
+spring:
+  oauth2:
+    resource:
+      userInfoUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/me
+      preferTokenInfo: false
