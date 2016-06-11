@@ -1,9 +1,8 @@
-package com.carloscardona.icroservices.configserver;
+package com.carloscardona.microservices.configserver;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
-import org.springframework.context.annotation.ComponentScan;
 
 /**
  * The Main Spring Boot Application class.<br>
@@ -17,9 +16,8 @@ import org.springframework.context.annotation.ComponentScan;
  *
  * @author candr
  */
-@EnableAutoConfiguration
 @EnableConfigServer
-@ComponentScan
+@SpringBootApplication
 public class ConfigServerApplication {
 
 	public static void main(String[] args) {
