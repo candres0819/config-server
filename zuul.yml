@@ -4,9 +4,9 @@ server:
 
 # The OAuth2 server definition that would be used to send the authorization requests to
 authserver:
-    hostname: localhost
-    port: 8899
-    contextPath: userauth
+  hostname: localhost
+  port: 8089
+  contextPath: userauth
 
 # Define the routes which determine what URL are serviced by what applications.
 # The application/services are defined in the bootstrap.yml file of individual applications
@@ -17,7 +17,7 @@ authserver:
 # requests using zuul
 zuul:
   routes:
-    ws-auth-server: /api/task/**
+    ws-auth-server: /api/userauth/**
     ws-user: /api/user/**
     ws-task: /api/task/**
     ws-customers: /api/customers/**

@@ -1,6 +1,7 @@
 server:
-  port: 8899
+  port: 8089
   contextPath: /userauth
+
 eureka:
   client:
     serviceUrl:
